@@ -1,6 +1,8 @@
 let fs = require('fs')
+let fetch = require('node-fetch')
 let path = require('path')
 let levelling = require('../lib/levelling')
+let imagi = 'https://telegra.ph/file/1373fe8a8f42396ed166d.jpg'
 let tags = {
   'main': 'Main',
   'game': 'Game',
@@ -30,30 +32,23 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-╭─「 %me 」
-│ Hai, %name!
-│
-│ Tersisa *%limit Limit*
-│ Role *%role*
-│ Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]
-│ %totalexp XP in Total
-│ 
-│ Tanggal: *%week %weton, %date*
-│ Tanggal Islam: *%dateIslamic*
-│ Waktu: *%time*
-│
-│ Uptime: *%uptime (%muptime)*
-│ Database: %rtotalreg of %totalreg
-│ Github:
-│ %github
-╰────
-%readmore`.trimStart(),
-  header: '╭─「 %category 」',
-  body: '│ • %cmd %islimit %isPremium',
-  footer: '╰────\n',
+\`\`\`${ucapan()}, undefined\`\`\`
+
+➢ Runtime : %uptime
+➢ Prefix Status : MULTI
+➢ Creator : wa.me/60199782336
+➢ Total Registered Users : %rtotalreg
+➢ Total Users : %totalreg
+
+➢ Limit : %limit
+➢ XP : %exp
+➢ Level : %level
+`.trimStart(),
+  header: '```%category```',
+  body: '➢ %cmd %islimit %isPremium',
+  footer: '\n',
   after: `
-*%npmname@^%version*
-${'```%npmdesc```'}
+OFFICIAL Bot by @0
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
@@ -152,7 +147,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.reply(m.chat, text.trim(), m)
+    await conn.send2ButtonLoc(m.chat, await (await fetch(imagi)).buffer(), text.trim(), 'SULIT DIMENGERTI', 'OWNER', '.owner', '
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
