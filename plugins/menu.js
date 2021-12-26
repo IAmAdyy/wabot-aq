@@ -147,7 +147,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send2ButtonLoc(m.chat, await (await fetch(imagi)).buffer(), text.trim(), 'SULIT DIMENGERTI', 'OWNER', '.owner', '
+    await conn.send2ButtonLoc(m.chat, await (await fetch(imagi)).buffer(), text.trim(), 'SULIT DIMENGERTI', 'OWNER', '.owner', 'IDK', '.play')
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
@@ -178,4 +178,21 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+}
+function ucapan() {
+  const time = (new Date().getUTCHours() + 7) % 24
+  res = "Selamat dinihari"
+  if (time >= 4) {
+    res = "Selamat pagi"
+  }
+  if (time > 10) {
+    res = "Selamat siang"
+  }
+  if (time >= 15) {
+    res = "Selamat sore"
+  }
+  if (time >= 18) {
+    res = "Selamat malam"
+  }
+  return res
 }
