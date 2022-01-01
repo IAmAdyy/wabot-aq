@@ -37,8 +37,10 @@ const defaultMenu = {
 • Runtime : %uptime
 • Prefix Status : MULTI
 • Creator : @60199782326
+• Host : @${conn.user.jid}
 • Total Registered Users : %rtotalreg
 • Total Users : %totalreg
+• Powered by @0
 
 • Limit : %limit
 • XP : %exp
