@@ -2,7 +2,7 @@ let fs = require('fs')
 let fetch = require('node-fetch')
 let path = require('path')
 let levelling = require('../lib/levelling')
-let imagi = 'https://telegra.ph/file/1373fe8a8f42396ed166d.jpg'
+let imagi = 'https://telegra.ph/file/569b4e652187b580af99b.jpg'
 let tags = {
   'main': 'Main',
   'game': 'Game',
@@ -34,19 +34,19 @@ const defaultMenu = {
   before: `
 \`\`\`${ucapan()}, undefined\`\`\`
 
-➢ Runtime : %uptime
-➢ Prefix Status : MULTI
-➢ Creator : wa.me/60199782336
-➢ Total Registered Users : %rtotalreg
-➢ Total Users : %totalreg
+• Runtime : %uptime
+• Prefix Status : MULTI
+• Creator : @60199782326
+• Total Registered Users : %rtotalreg
+• Total Users : %totalreg
 
-➢ Limit : %limit
-➢ XP : %exp
-➢ Level : %level
+• Limit : %limit
+• XP : %exp
+• Level : %level
 `.trimStart(),
-  header: '```%category```',
-  body: '➢ %cmd %islimit %isPremium',
-  footer: '\n',
+  header: '%category\n┏━━━❏',
+  body: '┃• %cmd %islimit %isPremium',
+  footer: '┗━━━❏\n',
   after: `
 OFFICIAL Bot by @0
 `,
