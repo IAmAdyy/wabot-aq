@@ -3,7 +3,7 @@ let fetch = require('node-fetch')
 let path = require('path')
 let os = require('os')
 let levelling = require('../lib/levelling')
-let imagi = 'https://telegra.ph/file/569b4e652187b580af99b.jpg'
+let imagi = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE7EnNkFf8-jer8k6eT_gd9butzTdl-s91uPaEhL-ggw3-h8T90x-h8Z66&s=10'
 let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 let tags = {
   'main': 'Main',
@@ -47,6 +47,8 @@ Hello there! ${ucapan()}
 *Device:* ${os.platform()}
 *Bot device name:* OPPO CPH1715
 *Battery:* ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Ｃｈａｒｇｉｎｇ' : '⚡ Discharging' }` : 'Not detected'}
+*Sc bot:* %github
+*Database:* MongoDB
 
 *Ｓｔａｔｕｓ ｏｔｈｅｒ:*
 *Islam calender:* %dateIslamic
@@ -165,9 +167,9 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     throw e
   }
 }
-handler.help = ['allmenu']
+handler.help = ['menu', 'help']
 handler.tags = ['main']
-handler.command = /^(allmenu)$/i
+handler.command = /^(menu|help)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
