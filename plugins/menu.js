@@ -1,8 +1,10 @@
 let fs = require('fs')
 let fetch = require('node-fetch')
 let path = require('path')
+let os = require('os')
 let levelling = require('../lib/levelling')
 let imagi = 'https://telegra.ph/file/569b4e652187b580af99b.jpg'
+let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 let tags = {
   'main': 'Main',
   'game': 'Game',
@@ -32,23 +34,11 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-\`\`\`${ucapan()}, undefined\`\`\`
-
-• Runtime : %uptime
-• Prefix Status : MULTI
-• Creator : @60199782326
-• Host : @${conn.user.jid}
-• Total Registered Users : %rtotalreg
-• Total Users : %totalreg
-• Powered by @0
-
-• Limit : %limit
-• XP : %exp
-• Level : %level
+Silahkan liat:v
 `.trimStart(),
-  header: '%category\n┏━━━❏',
-  body: '┃• %cmd %islimit %isPremium',
-  footer: '┗━━━❏\n',
+  header: '*%category*',
+  body: '%cmd %islimit %isPremium',
+  footer: '\n',
   after: `
 OFFICIAL Bot by @0
 `,
