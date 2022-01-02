@@ -5,6 +5,7 @@ let os = require('os')
 let levelling = require('../lib/levelling')
 let imagi = 'https://telegra.ph/file/569b4e652187b580af99b.jpg'
 let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
+let a = '1'
 let tags = {
   'main': 'Main',
   'game': 'Game',
@@ -37,7 +38,7 @@ const defaultMenu = {
 Silahkan liat:v
 `.trimStart(),
   header: '*%category*',
-  body: '%cmd %islimit %isPremium',
+  body: `${a+=1} %cmd %islimit %isPremium`,
   footer: '\n',
   after: `
 OFFICIAL Bot by @0
