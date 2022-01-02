@@ -38,7 +38,7 @@ const defaultMenu = {
 Silahkan liat:v
 `.trimStart(),
   header: '*%category*',
-  body: `${a+=1} %cmd %islimit %isPremium`,
+  body: `${a++} %cmd %islimit %isPremium`,
   footer: '\n',
   after: `
 OFFICIAL Bot by @0
