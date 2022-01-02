@@ -54,9 +54,9 @@ Hello there! ${ucapan()}
 *Islam calender:* %dateIslamic
 *calender:* %week %weton %date
 `.trimStart(),
-  header: false,
-  body: false,
-  footer: false,
+  header: '',
+  body: '',
+  footer: '',
   after: `
 OFFICIAL Bot by @0
 `,
