@@ -53,6 +53,9 @@ Hello there! ${ucapan()}
 *Ｓｔａｔｕｓ ｏｔｈｅｒ:*
 *Islam calender:* %dateIslamic
 *calender:* %week %weton %date
+
+*_DONT CLICK READMORE!!!_*
+%readmore
 `.trimStart(),
   header: '',
   body: '',
