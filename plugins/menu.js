@@ -8,35 +8,10 @@ let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${M
 let a = '1'
 let thumbnail = '../src/20220105_202838.jpg'
 let tags = {
-  'main': 'Main',
-  'game': 'Game',
-  'xp': 'Exp & Limit',
-  'sticker': 'Sticker',
-  'kerang': 'Kerang Ajaib',
-  'quotes': 'Quotes',
-  'admin': 'Admin',
-  'group': 'Group',
-  'premium': 'Premium',
-  'internet': 'Internet',
-  'anonymous': 'Anonymous Chat',
-  'nulis': 'MagerNulis & Logo',
-  'downloader': 'Downloader',
-  'tools': 'Tools',
-  'fun': 'Fun',
-  'database': 'Database',
-  'vote': 'Voting',
-  'absen': 'Absen',
-  'quran': 'Al Qur\'an',
-  'jadibot': 'Jadi Bot',
-  'owner': 'Owner',
-  'host': 'Host',
-  'advanced': 'Advanced',
-  'info': 'Info',
   '': 'No Category',
 }
 const defaultMenu = {
-  before: `
-Silahkan liat:v
+  before: `%readmore
 `.trimStart(),
   header: '*%category*',
   body: `⎆ %cmd %islimit %isPremium`,
@@ -141,16 +116,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(), {contextInfo:{
-            "externalAdReply": {
-            "title": `Hallo user bot!`,
-            "body": `AdyyBot by Adii`,
-            "mediaType": "2",
-            "thumbnailUrl": "https://i.ibb.co/1z7F0j9/ruminas.jpg",
-            "mediaUrl": "http://instagram.com/susanti.mp4",
-            "thumbnail": thumbnail,
-            "sourceUrl": "http://adiixyzapi.herokuapp.com"
-            }}})
+    conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(), {thumbnail: Buffer.alloc(0)})
   } catch (e) {
     conn.reply(m.chat, e, m)
   }
