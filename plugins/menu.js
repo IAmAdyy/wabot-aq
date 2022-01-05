@@ -141,7 +141,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(), {contextInfo:{
+    conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(), {contextInfo:{
             "forwardingScore": 100,
             isForwarded: false,
             sendEphemeral: false,
