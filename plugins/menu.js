@@ -142,9 +142,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(), {contextInfo:{
-            "forwardingScore": 100,
-            isForwarded: false,
-            sendEphemeral: false,
             "externalAdReply": {
             "title": `Hallo user bot!`,
             "body": `AdyyBot by Adii`,
@@ -155,8 +152,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
             "sourceUrl": "http://adiixyzapi.herokuapp.com"
             }}})
   } catch (e) {
-    conn.reply(m.chat, 'Maaf, menu sedang error', m)
-    throw e
+    conn.reply(m.chat, e, m)
   }
 }
 handler.help = ['allmenu']
