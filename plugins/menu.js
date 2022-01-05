@@ -131,6 +131,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
             sellerJid: '0@s.whatsapp.net'
         }
     }
+    let adii = 'yo'
     conn.send2ButtonImg(m.chat, thumbnail, text.trim(), 'adyy©2021', 'Speed bot', '.ping', 'Developer bot adyy', '.owner', reply)
   } catch (e) {
     conn.reply(m.chat, e, m)
