@@ -3,7 +3,7 @@ let fetch = require('node-fetch')
 let path = require('path')
 let os = require('os')
 let levelling = require('../lib/levelling')
-let imagi = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE7EnNkFf8-jer8k6eT_gd9butzTdl-s91uPaEhL-ggw3-h8T90x-h8Z66&s=10'
+let imagi = 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg'
 let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 let tags = {
   'main': 'Main',
@@ -38,9 +38,10 @@ const defaultMenu = {
 Hello there! ${ucapan()}
 
 *Ｂｏｔ ｓｔａｔｕｓ:*
+*Creator bot:* @60199782326
+*Powered by:* @0
 *Runtime:* %uptime
 *Host:* ${os.hostname()}
-*Total feature:* ${Object.keys(global.plugins).length}
 *Group chats:* %groupsz
 *Private chats :* %privatez
 *Ram:* ${ram2}
@@ -48,7 +49,6 @@ Hello there! ${ucapan()}
 *Bot device name:* OPPO CPH1715
 *Battery:* ${conn.battery != undefined ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Ｃｈａｒｇｉｎｇ' : '⚡ Discharging' }` : 'Not detected'}
 *Sc bot:* %github
-*Database:* MongoDB
 
 *Ｓｔａｔｕｓ ｏｔｈｅｒ:*
 *Islam calender:* %dateIslamic
