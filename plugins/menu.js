@@ -3,10 +3,10 @@ let fetch = require('node-fetch')
 let path = require('path')
 let os = require('os')
 let levelling = require('../lib/levelling')
-let imagi = 'https://telegra.ph/file/569b4e652187b580af99b.jpg'
+let imagi = 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg'
 let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 let a = '1'
-let thumbnail = '../src/20220105_202838.jpg'
+let thumbnail = fs.readFileSync('../src/20220105_202838.jpg')
 let tags = {
   '': 'No Category',
 }
@@ -131,7 +131,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
             sellerJid: '0@s.whatsapp.net'
         }
     }
-    conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(), reply, {thumbnail: Buffer.alloc(0)})
+    conn.send2ButtonImg(m.chat, thumbnail, text.trim(), 'adyy©2021', 'Speed bot', '.ping', 'Developer bot adyy', '.owner', reply)
   } catch (e) {
     conn.reply(m.chat, e, m)
   }
