@@ -6,6 +6,7 @@ let levelling = require('../lib/levelling')
 let imagi = 'https://telegra.ph/file/569b4e652187b580af99b.jpg'
 let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 let a = '1'
+let thumbnail = '../src/20220105_202838.jpg'
 let tags = {
   'main': 'Main',
   'game': 'Game',
@@ -140,7 +141,19 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send2ButtonLoc(m.chat, await (await fetch(imagi)).buffer(), text.trim(), 'SULIT DIMENGERTI', 'OWNER', '.owner', 'IDK', '.play')
+    await conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(),{contextInfo:{
+            "forwardingScore": 100,
+            isForwarded: false,
+            sendEphemeral: false,
+            "externalAdReply": {
+            "title": `Hallo user bot!` ,
+            "body": `AdyyBot by Adii`,
+            "mediaType": "2",
+            "thumbnailUrl": "https://i.ibb.co/1z7F0j9/ruminas.jpg",
+            "mediaUrl": "http://instagram.com/susanti.mp4",
+            "thumbnail": thumbnail,
+            "sourceUrl": "http://adiixyzapi.herokuapp.com"
+            })
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
