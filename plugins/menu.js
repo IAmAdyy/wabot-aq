@@ -8,7 +8,7 @@ let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${M
 let a = '1'
 let thumbnail = fs.readFileSync('./src/20220105_202838.jpg')
 let tags = {
-  '': 'No Category',
+  '': 'no category',
 }
 const defaultMenu = {
   before: `%readmore
@@ -16,9 +16,7 @@ const defaultMenu = {
   header: '*%category*',
   body: `⎆ %cmd %islimit %isPremium`,
   footer: '\n',
-  after: `
-OFFICIAL Bot by @0
-`,
+  after: `OFFICIAL Bot by @0`,
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
@@ -88,9 +86,9 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
         return header.replace(/%category/g, tags[tag]) + '\n' + [
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
-              return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '(Limit)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Premium)' : '')
+              return body.replace(/%cmd/g, menu.prefix ? help : '!' + help)
+                .replace(/%islimit/g, menu.limit ? '\nLimited : true' : '')
+                .replace(/%isPremium/g, menu.premium ? '\nPremium : true' : '')
                 .trim()
             }).join('\n')
           }),
