@@ -6,7 +6,7 @@ let levelling = require('../lib/levelling')
 let imagi = 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg'
 let ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
 let a = '1'
-let thumbnail = fs.readFileSync('../src/20220105_202838.jpg')
+let thumbnail = fs.readFileSync('./src/20220105_202838.jpg')
 let tags = {
   '': 'No Category',
 }
