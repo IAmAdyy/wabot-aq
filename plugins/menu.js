@@ -116,7 +116,22 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(), {thumbnail: Buffer.alloc(0)})
+    const reply = {
+    key: {
+        participant: '0@s.whatsapp.net'
+    },
+    message: {
+        orderMessage: {
+            itemCount: 2022,
+            itemCoun: 404,
+            surface: 404,
+            message: `AdyyBotz By Adii`,
+            orderTitle: 'B',
+            thumbnail: thumbnail,
+            sellerJid: '0@s.whatsapp.net'
+        }
+    }
+    conn.sendFile(m.chat, 'https://telegra.ph/file/8add7ab2b3de27da74bfb.jpg', 'menu.jpg', text.trim(), reply, {thumbnail: Buffer.alloc(0)})
   } catch (e) {
     conn.reply(m.chat, e, m)
   }
