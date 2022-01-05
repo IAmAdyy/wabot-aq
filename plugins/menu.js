@@ -153,7 +153,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
             "mediaUrl": "http://instagram.com/susanti.mp4",
             "thumbnail": thumbnail,
             "sourceUrl": "http://adiixyzapi.herokuapp.com"
-            }})
+            }}})
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
